@@ -22,7 +22,7 @@
 
     <div class="p-4 backdrop-blur-xl flex flex-col gap-2 bg-primary-light dark:bg-primary-dark">
       <h2 class="text-xl font-bold capitalize text-center text-light/90 dark:text-neutral drop-shadow">
-        {{ pokemon.name }}
+        {{ translatedName || pokemon.name }}
       </h2>
     </div>
   </div>
@@ -30,5 +30,5 @@
 
 <script setup lang="ts">
 import type {Pokemon} from "~/types/pokemon";
-defineProps<{ pokemon: Pokemon }>()
+defineProps<{ pokemon: Pokemon, translatedName?: string }>()
 </script>

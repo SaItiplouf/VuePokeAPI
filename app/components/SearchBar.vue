@@ -10,16 +10,14 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { watch } from 'vue'
+import type {Pokemon} from "~/types/pokemon";
+import type {PokemonTranslations} from "~/types/pokemonTranslations";
 const { t } = useI18n()
-
-interface Translation {
-  id: number
-  en: string
-  fr: string
-}
 
 const props = defineProps<{
   pokemons: Pokemon[]
+  translations: PokemonTranslations[]
 }>();
 
 const emit = defineEmits<{
@@ -27,29 +25,12 @@ const emit = defineEmits<{
 }>()
 
 const searchTerm = ref('')
-const translations = ref<Translation[]>([])
 
-async function fetchTranslations() {
-  try {
-    const res = await fetch('/pokemonTranslations.json')
-    if (!res.ok) {
-      console.error('Erreur chargement traductions:', res.status)
-      return
-    }
-    translations.value = await res.json()
-  } catch (e) {
-    console.error('Erreur chargement traductions:', e)
-  }
-}
-
-onMounted(() => {
-  fetchTranslations()
-})
 
 const enToFrMap = computed(() => {
   const map = new Map<string, string>()
-  translations.value.forEach(t => {
-    map.set(t.en.toLowerCase(), t.fr.toLowerCase())
+  props.translations.forEach(tr => {
+    map.set(tr.en.toLowerCase(), tr.fr.toLowerCase())
   })
   return map
 })
@@ -66,9 +47,6 @@ const filteredPokemons = computed(() => {
   })
 })
 
-// Watch filteredPokemons and emit to parent on changes
-import { watch } from 'vue'
-import type {Pokemon} from "~/types/pokemon";
 watch(filteredPokemons, (newVal) => {
   emit('update:filtered', newVal)
 })

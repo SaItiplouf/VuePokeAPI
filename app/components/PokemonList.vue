@@ -9,6 +9,7 @@
           v-for="pokemon in pokemons"
           :key="pokemon.id"
           :pokemon="pokemon"
+          :translated-name="getTranslation(pokemon.id)"
       />
 
       <SkeletonCard
@@ -24,10 +25,20 @@
 import type { Pokemon } from '~/types/pokemon'
 import PokemonCard from './PokemonCard.vue'
 import SkeletonCard from './SkeletonCard.vue'
+import type {PokemonTranslations} from "~/types/pokemonTranslations";
 
-defineProps<{
+const props = defineProps<{
   pokemons: Pokemon[]
   loading: boolean
-  error: string | null
+  error: string | null,
+  translations: PokemonTranslations[]
 }>()
+
+const { locale } = useI18n()
+
+function getTranslation(id: number): string {
+  const tr = props.translations.find(t => t.id === id)
+  if (!tr) return ''
+  return locale.value === 'fr' ? tr.fr : tr.en
+}
 </script>
