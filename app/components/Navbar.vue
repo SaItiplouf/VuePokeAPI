@@ -19,9 +19,10 @@
       <div class="flex w-full sm:w-auto items-center gap-3">
         <LanguageSwitcher />
         <SearchBar
-            class="flex-grow"
+            :translations="translations"
             :pokemons="pokemons"
             @update:filtered="$emit('update:filtered', $event)"
+            class="flex-grow"
         />
       </div>
     </div>
@@ -29,11 +30,12 @@
 </template>
 
 <script setup lang="ts">
+import type {PokemonTranslations} from "~/types/pokemonTranslations";
+
 const { t } = useI18n()
 import SearchBar from '~/components/SearchBar.vue'
 import type { Pokemon } from '~/types/pokemon'
 
-defineProps<{ pokemons: Pokemon[] }>()
-
+defineProps<{ pokemons: Pokemon[], translations: PokemonTranslations[]}>()
 defineEmits<{ (e: 'update:filtered', value: Pokemon[]): void }>()
 </script>

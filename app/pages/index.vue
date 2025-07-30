@@ -1,5 +1,5 @@
 <template>
-  <navbar :pokemons="pokemons" @update:filtered="handleFilteredUpdate" />
+  <navbar :translations="translations" :pokemons="pokemons" @update:filtered="handleFilteredUpdate" />
 
   <PokemonList
       :pokemons="visiblePokemons"
@@ -15,6 +15,7 @@ import { usePokemon } from '~/composables/usePokemon'
 
 import PokemonList from '~/components/PokemonList.vue'
 import Navbar from "~/components/Navbar.vue";
+import type {PokemonTranslations} from "~/types/pokemonTranslations";
 
 const { pokemons, loading, error, fetchAll } = usePokemon()
 
@@ -57,10 +58,26 @@ function onScroll() {
 
 onMounted(() => {
   fetchAll()
+  fetchTranslations()
   window.addEventListener('scroll', onScroll)
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
+
+const translations = ref<PokemonTranslations[]>([])
+
+async function fetchTranslations() {
+  try {
+    const res = await fetch('/pokemonTranslations.json')
+    if (!res.ok) {
+      console.error('Erreur chargement traductions:', res.status)
+      return
+    }
+    translations.value = await res.json()
+  } catch (e) {
+    console.error('Erreur chargement traductions:', e)
+  }
+}
 </script>
