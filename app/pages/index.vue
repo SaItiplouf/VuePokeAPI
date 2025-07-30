@@ -5,6 +5,7 @@
       :pokemons="visiblePokemons"
       :loading="loading"
       :error="error"
+      :translations="translations"
   />
 </template>
 
