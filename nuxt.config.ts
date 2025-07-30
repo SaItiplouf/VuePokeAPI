@@ -22,5 +22,9 @@ export default defineNuxtConfig({
     dataValue: 'class',
     classSuffix: '',
   },
+  icon: {
+    mode: 'css',
+    cssLayer: 'base'
+  },
   css: ['/assets/css/main.css'],
 })

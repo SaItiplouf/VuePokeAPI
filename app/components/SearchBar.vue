@@ -3,13 +3,14 @@
       v-model="searchTerm"
       type="text"
       aria-label="Search for Pokemon"
-      placeholder="Search for Pokemon"
+      :placeholder="t('search')"
       class="w-full bg-primary-light dark:bg-primary-dark border dark:text-neutral border-light/30 dark:border-primary/40 rounded-lg px-4 py-2 text-sm shadow-sm outline-none focus:ring-2 focus:ring-main/50 transition"
   />
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+const { t } = useI18n()
 
 interface Translation {
   id: number

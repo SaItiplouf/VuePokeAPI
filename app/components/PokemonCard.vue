@@ -1,9 +1,9 @@
 <template>
   <div
-      class="w-full backdrop-blur-sm bg-base-100/70 border border-light dark:border-primary border-opacity-50 rounded-lg overflow-hidden transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-dark/30 cursor-pointer"
+      class="w-full bg-base-100/70 border border-light dark:border-primary border-opacity-50 rounded-lg overflow-hidden transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-dark/30 cursor-pointer"
   >
     <div class="relative bg-base-200 p-4 flex justify-center items-center h-48">
-      <div class="absolute top-2 left-2 z-20 bg-main text-white text-xs font-semibold rounded-full w-7 h-7 flex items-center justify-center shadow">
+      <div class="absolute top-2 left-2 z-5 bg-main/80 text-white text-xs font-semibold rounded-full w-7 h-7 flex items-center justify-center shadow">
         #{{ pokemon.id }}
       </div>
 
