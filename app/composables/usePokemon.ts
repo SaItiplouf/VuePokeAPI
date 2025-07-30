@@ -1,37 +1,35 @@
 import { ref } from 'vue'
+import type {Pokemon} from "~/types/pokemon";
 
 interface PokemonRef { name: string; url: string }
-interface Pokemon { name: string; image: string }
 
 export const usePokemon = () => {
 	const pokemons = ref<Pokemon[]>([])
-	const nextUrl = ref<string | null>(null)
-	const loading = ref(false)
+	const loading = ref(true)
 	const error = ref<string | null>(null)
 
-	const fetchPage = async (limit = 20, offset = 0) => {
+	const fetchAll = async () => {
 		loading.value = true
 		try {
-			const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+			// Récupère tous les pokémons (limite maximale)
+			const res = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=151&offset=0`)
 			const data = await res.json()
-			nextUrl.value = data.next
 			const refs: PokemonRef[] = data.results
 
-			const page = refs.map(r => {
-				const id = r.url.split('/').filter(Boolean).pop()
+			pokemons.value = refs.map(r => {
+				const id = Number(r.url.split('/').filter(Boolean).pop())
 				return {
+					id,
 					name: r.name,
-					image: id
-						? `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
-						: ''
+					image: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
 				}
 			})
-			pokemons.value.push(...page)
 		} catch (err: any) {
 			error.value = err.message || 'Fetch error'
 		} finally {
 			loading.value = false
 		}
 	}
-	return { pokemons, nextUrl, loading, error, fetchPage }
+
+	return { pokemons, loading, error, fetchAll }
 }

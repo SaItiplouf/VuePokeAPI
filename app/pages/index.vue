@@ -1,8 +1,14 @@
 <template>
-  <h1 class="text-2xl text-light dark:text-neutral font-bold mb-4">Pokédex</h1>
-  <PokemonList />
+  <PokemonList :pokemons="pokemons" :loading="loading" :error="error" />
 </template>
 
 <script setup lang="ts">
+import {onMounted} from "vue";
+const { pokemons, loading, error, fetchAll } = usePokemon()
+
+onMounted(() => {
+  fetchAll()
+})
 import PokemonList from "../components/PokemonList.vue";
+import {usePokemon} from "~/composables/usePokemon";
 </script>
