@@ -11,17 +11,15 @@
             class="w-10 h-10"
         />
         <h1 class="text-xl sm:text-2xl font-bold text-light dark:text-neutral">
-          {{ t('title') }}
+          {{ t('pokedex.title') }}
         </h1>
       </div>
 
       <!-- Search Input -->
       <div class="flex w-full sm:w-auto items-center gap-3">
+        <ThemeSwitcher />
         <LanguageSwitcher />
         <SearchBar
-            :translations="translations"
-            :pokemons="pokemons"
-            @update:filtered="$emit('update:filtered', $event)"
             class="flex-grow"
         />
       </div>
@@ -30,12 +28,9 @@
 </template>
 
 <script setup lang="ts">
-import type {PokemonTranslations} from "~/types/pokemonTranslations";
+import ThemeSwitcher from "~/components/navbar/ThemeSwitcher.vue";
 
 const { t } = useI18n()
-import SearchBar from '~/components/SearchBar.vue'
-import type { Pokemon } from '~/types/pokemon'
-
-defineProps<{ pokemons: Pokemon[], translations: PokemonTranslations[]}>()
-defineEmits<{ (e: 'update:filtered', value: Pokemon[]): void }>()
+import SearchBar from "~/components/navbar/SearchBar.vue";
+import LanguageSwitcher from "~/components/navbar/LanguageSwitcher.vue";
 </script>

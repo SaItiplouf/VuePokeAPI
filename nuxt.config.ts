@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     'reka-ui/nuxt',
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
+    '@pinia/nuxt',
   ],
   i18n: {
     defaultLocale: 'en',

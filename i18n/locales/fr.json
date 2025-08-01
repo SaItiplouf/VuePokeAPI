@@ -1,4 +1,11 @@
 {
-  "title": "Pokédex",
-  "search": "Rechercher des pokémons"
+  "pokedex": {
+    "title": "Pokédex",
+    "search": "Rechercher des Pokémon",
+    "errors": {
+      "fetchPokemons": "Une erreur est survenue lors du chargement des Pokémon.",
+      "fetchTypes": "Une erreur est survenue lors du chargement des types de Pokémon."
+    },
+    "noResults": "Aucun résultat trouvé."
+  }
 }
