@@ -17,6 +17,7 @@
 
       <!-- Search Input -->
       <div class="flex w-full sm:w-auto items-center gap-3">
+        <ThemeSwitcher />
         <LanguageSwitcher />
         <SearchBar
             class="flex-grow"
@@ -27,6 +28,8 @@
 </template>
 
 <script setup lang="ts">
+import ThemeSwitcher from "~/components/navbar/ThemeSwitcher.vue";
+
 const { t } = useI18n()
 import SearchBar from "~/components/navbar/SearchBar.vue";
 import LanguageSwitcher from "~/components/navbar/LanguageSwitcher.vue";

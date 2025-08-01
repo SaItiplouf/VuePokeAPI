@@ -6,7 +6,7 @@
       :class="[
             type.name === store.selectedType ? 'ring-4 ring-main' : ''
           ]"
-      class="px-4 py-2 rounded-lg shadow-lg hover:scale-105 transition duration-200 capitalize border dark:text-neutral border-light/30 dark:border-primary/40"
+      class="px-4 py-2 rounded-lg shadow-lg hover:scale-105 transition duration-200 capitalize border text-dark dark:text-neutral border-light/30 dark:border-primary/40"
   >
     {{ type.translations?.[localeString] ?? type.name }}
   </button>

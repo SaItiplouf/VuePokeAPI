@@ -22,7 +22,7 @@ export default <Partial<Config>>{
 				success: '#34D399',
 				warning: '#FBBF24',
 				error: '#EF4444',
-				dark: '#212129',
+				dark: '#191c24',
 				light: '#787c82',
 				main: '#0073FF',
 				white: '#FFFFFF',
