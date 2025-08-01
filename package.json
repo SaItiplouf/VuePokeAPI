@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:all": "ts-node scripts/generate-pokemons.ts && ts-node scripts/generate-pokemontypes.ts",
+    "prebuild": "npm run generate:all",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -14,7 +16,9 @@
     "@nuxt/image": "^1.10.0",
     "@nuxtjs/color-mode": "^3.5.2",
     "@nuxtjs/i18n": "^10.0.3",
+    "@pinia/nuxt": "^0.11.2",
     "nuxt": "^4.0.1",
+    "pinia": "^3.0.3",
     "reka-ui": "^2.4.0",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
