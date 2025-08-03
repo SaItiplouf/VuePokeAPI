@@ -1,6 +1,15 @@
 <template>
   <div class="relative inline-block w-full text-gray-700">
+    <div v-if="loading" class="w-full">
+      <SkeletonPokemonSelectType />
+    </div>
+
+    <div v-if="error && !loading" class="w-full text-center">
+      <Alert :message="t('pokedex.errors.fetchTypes')" variant="error" />
+    </div>
+
     <SelectRoot
+        v-if="!loading && !error"
         :model-value="store.selectedType"
         @update:modelValue="val => store.setType(val)"
         class="w-full"
@@ -81,6 +90,8 @@ import { storeToRefs } from 'pinia'
 import { usePokemonTypesStore } from '~/stores/pokemonTypes'
 import { computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
+import SkeletonPokemonCardType from "~/components/pokemonType/list/SkeletonPokemonCardType.vue";
+import SkeletonPokemonSelectType from "~/components/pokemonType/select/SkeletonPokemonSelectType.vue";
 
 const store = usePokemonTypesStore()
 const { t } = useI18n()
