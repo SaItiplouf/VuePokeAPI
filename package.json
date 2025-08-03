@@ -3,8 +3,6 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate:all": "ts-node scripts/generate-pokemons.ts && ts-node scripts/generate-pokemontypes.ts",
-    "prebuild": "npm run generate:all",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
