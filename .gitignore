@@ -3,7 +3,7 @@
 .data
 .nuxt
 .nitro
-.cache
+/tmp
 dist
 package-lock.json
 # Node dependencies

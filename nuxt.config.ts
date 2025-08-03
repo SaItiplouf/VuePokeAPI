@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
     },
-    CACHE_DIR: 'public/.cache',
+    CACHE_DIR: 'tmp/.cache',
     POKEMONS_FILE: 'pokemons.json',
     TYPES_FILE: 'pokemonTypes.json',
     CACHE_TTL: 1000 * 60 * 60, // 1h
