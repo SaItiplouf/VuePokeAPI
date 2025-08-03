@@ -16,12 +16,11 @@
       </div>
 
       <!-- Search Input -->
-      <div class="flex w-full sm:w-auto items-center gap-3">
-        <ThemeSwitcher />
+      <div class="flex w-full sm:w-auto items-center gap-3 justify-between sm:justify-start">
         <LanguageSwitcher />
-        <SearchBar
-            class="flex-grow"
-        />
+        <ClientOnly>
+          <ThemeSwitcher />
+        </ClientOnly>
       </div>
     </div>
   </header>

@@ -9,8 +9,15 @@ export const usePokemonTypesStore = defineStore('pokemonTypes', {
 		loading: true,
 		error: null as string | null,
 	}),
+	getters: {
+		getTypeByName: (state) => {
+			return (typeName: string): IPokemonTypeExtended | undefined => {
+				return state.types.find(type => type.name === typeName);
+			}
+		}
+	},
 	actions: {
-		setType(typeName: string) {
+		setType(typeName: string | null) {
 			this.selectedType = this.selectedType === typeName ? null : typeName;
 		},
 		async fetchAllTypes() {
