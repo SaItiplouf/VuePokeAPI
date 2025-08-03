@@ -5,13 +5,20 @@ import type {IPokemonTypeExtended} from "~/types/pokemonType.model";
 export const usePokemonTypesStore = defineStore('pokemonTypes', {
 	state: () => ({
 		types: [] as IPokemonTypeExtended[],
-		selectedType:  '' as string,
+		selectedType: null as string | null,
 		loading: true,
 		error: null as string | null,
 	}),
+	getters: {
+		getTypeByName: (state) => {
+			return (typeName: string): IPokemonTypeExtended | undefined => {
+				return state.types.find(type => type.name === typeName);
+			}
+		}
+	},
 	actions: {
-		setType(typeName: string) {
-			this.selectedType = this.selectedType === typeName ? '' : typeName;
+		setType(typeName: string | null) {
+			this.selectedType = this.selectedType === typeName ? null : typeName;
 		},
 		async fetchAllTypes() {
 			if (this.types.length > 0) return;
@@ -20,10 +27,14 @@ export const usePokemonTypesStore = defineStore('pokemonTypes', {
 			this.error = null;
 
 			try {
-				const res = await fetch('/pokemonTypes.json');
+				const res = await fetch('/api/types');
+				if (!res.ok) {
+					this.error = `HTTP error! Status: ${res.status}`;
+					return;
+				}
 				this.types = await res.json();
 			} catch (err: any) {
-				this.error = err.message || 'Pokemon types loading error';
+				this.error = err.message || 'Erreur lors du chargement des types Pokémon';
 			} finally {
 				this.loading = false;
 			}

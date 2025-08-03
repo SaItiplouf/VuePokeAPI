@@ -1,7 +1,7 @@
 <template>
   <div class="p-4">
     <div v-if="loading" class="flex flex-wrap gap-2">
-      <SkeletonPokemonType />
+      <SkeletonPokemonCardType />
     </div>
 
     <div v-if="error && !loading" class="w-full text-center">
@@ -23,8 +23,7 @@
 import { storeToRefs } from 'pinia'
 import { usePokemonTypesStore } from '~/stores/pokemonTypes'
 import { computed, onMounted } from 'vue'
-import SkeletonPokemonType from "~/components/pokemonType/SkeletonPokemonType.vue";
-import PokemonTypeCard from "~/components/pokemonType/PokemonTypeCard.vue";
+import SkeletonPokemonCardType from "~/components/pokemonType/list/SkeletonPokemonCardType.vue";
 
 const store = usePokemonTypesStore()
 const { t } = useI18n()

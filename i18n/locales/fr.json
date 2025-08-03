@@ -2,6 +2,12 @@
   "pokedex": {
     "title": "Pokédex",
     "search": "Rechercher des Pokémon",
+    "filters": {
+      "type": {
+        "placeholder": "Filter par type",
+        "label": "Types de pokémons"
+      }
+    },
     "errors": {
       "fetchPokemons": "Une erreur est survenue lors du chargement des Pokémon.",
       "fetchTypes": "Une erreur est survenue lors du chargement des types de Pokémon."

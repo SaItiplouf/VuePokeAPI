@@ -42,7 +42,11 @@ export const usePokemonStore = defineStore('pokemon', {
 			this.error = null;
 
 			try {
-				const res = await fetch('/pokemons.json');
+				const res = await fetch('/api/pokemons');
+				if (!res.ok) {
+					this.error = `HTTP error! Status: ${res.status}`;
+					return;
+				}
 				this.pokemons = await res.json();
 			} catch (err: any) {
 				this.error = err.message || 'Pokemons loading error';
