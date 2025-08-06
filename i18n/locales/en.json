@@ -12,6 +12,12 @@
       "fetchPokemons": "An error occurred while loading Pokémon.",
       "fetchTypes": "An error occurred while loading Pokémon types."
     },
+    "pokemon": {
+      "cry": "Cry",
+      "height": "Height",
+      "weight": "Weight",
+      "baseExp": "Base XP"
+    },
     "noResults": "No results found."
   }
 }

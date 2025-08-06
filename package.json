@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@iconify-json/circle-flags": "^1.2.6",
+    "@iconify-json/heroicons": "^1.2.2",
     "@nuxtjs/tailwindcss": "npm:@nuxtjs/tailwindcss@nightly"
   }
 }

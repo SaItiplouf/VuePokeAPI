@@ -11,7 +11,7 @@ export default <Partial<Config>>{
 				},
 				secondary: {
 					light: '#FFD700',
-					dark: '#FFB800',
+					dark: '#c79000',
 				},
 				accent: {
 					light: '#D32F2F',

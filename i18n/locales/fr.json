@@ -12,6 +12,12 @@
       "fetchPokemons": "Une erreur est survenue lors du chargement des Pokémon.",
       "fetchTypes": "Une erreur est survenue lors du chargement des types de Pokémon."
     },
+    "pokemon": {
+      "cry": "Cri",
+      "height": "Taille",
+      "weight": "Poid",
+      "baseExp": "Xp de base"
+    },
     "noResults": "Aucun résultat trouvé."
   }
 }

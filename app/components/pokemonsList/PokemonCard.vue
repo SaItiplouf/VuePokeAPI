@@ -1,8 +1,9 @@
 <template>
-  <div
-      class="group w-full bg-base-100/70 border border-light dark:border-primary border-opacity-50 rounded-lg overflow-hidden transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-dark/30 cursor-pointer"
+  <NuxtLinkLocale
+      :to="{ name: 'pokemon-name', params: { name: pokemon.name } }"
+      class="group w-full bg-neutral dark:bg-primary-dark border border-light dark:border-primary border-opacity-50 rounded-lg overflow-hidden transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-dark/30 cursor-pointer block"
   >
-    <div class="relative bg-base-200 p-4 flex justify-center items-center h-48">
+    <div class="relative p-4 flex justify-center items-center h-48">
       <div
           v-bind:class="[
             pokemon.color === 'white' ? 'bg-white shadow-white/50 text-black' :
@@ -40,12 +41,11 @@
         {{ pokemon.translations?.[localeString] ?? pokemon.name }}
       </h2>
     </div>
-  </div>
+  </NuxtLinkLocale>
 </template>
 
 <script setup lang="ts">
+defineProps<{ pokemon: IPokemonExtended }>()
 import type {IPokemonExtended} from "~/types/pokemon.model";
 const localeString = getLocaleString()
-
-defineProps<{ pokemon: IPokemonExtended }>()
 </script>
