@@ -4,20 +4,7 @@
       class="group w-full bg-neutral dark:bg-primary-dark border border-light dark:border-primary border-opacity-50 rounded-lg overflow-hidden transition duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-dark/30 cursor-pointer block"
   >
     <div class="relative p-4 flex justify-center items-center h-48">
-      <div
-          v-bind:class="[
-            pokemon.color === 'white' ? 'bg-white shadow-white/50 text-black' :
-            pokemon.color === 'black' ? 'bg-black shadow-black/50 text-white' :
-            pokemon.color === 'blue' ? 'bg-blue-500 shadow-blue-500/50 text-white' :
-            pokemon.color === 'brown' ? 'bg-amber-900 shadow-amber-900/50 text-white' :
-            pokemon.color === 'gray' ? 'bg-gray-500 shadow-gray-500/50 text-white' :
-            pokemon.color === 'green' ? 'bg-green-500 shadow-green-500/50 text-white' :
-            pokemon.color === 'pink' ? 'bg-pink-500 shadow-pink-500/50 text-white' :
-            pokemon.color === 'purple' ? 'bg-purple-500 shadow-purple-500/50 text-white' :
-            pokemon.color === 'red' ? 'bg-red-500 shadow-red-500/50 text-white' :
-            pokemon.color === 'yellow' ? 'bg-yellow-500 shadow-yellow-500/50 text-white' :
-            'bg-gray-500 shadow-gray-500/50 text-white',
-          ]"
+      <div :class="pokemonClass"
           class="absolute top-2 left-2 z-5 text-xs font-semibold rounded-full w-7 h-7 flex items-center justify-center shadow-sm"
       >
         #{{ pokemon.id }}
@@ -45,7 +32,13 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ pokemon: IPokemonExtended }>()
 import type {IPokemonExtended} from "~/types/pokemon.model";
+
+const { pokemon } = defineProps<{
+  pokemon: IPokemonExtended
+}>()
 const localeString = getLocaleString()
+const pokemonClass = computed(() =>
+    getPokemonColorClass(pokemon.color)
+)
 </script>

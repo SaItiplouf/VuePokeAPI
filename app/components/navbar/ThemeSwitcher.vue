@@ -25,10 +25,8 @@ const isDark = computed({
 </script>
 
 <template>
-  <div class="inline-flex items-center space-x-2">
-    <span class="text-xl">🌞</span>
-
-    <ClientOnly>
+    <div class="inline-flex items-center space-x-2">
+      <span class="text-xl">🌞</span>
       <SwitchRoot
           v-model="isDark"
           role="switch"
@@ -46,8 +44,6 @@ const isDark = computed({
   ]"
         />
       </SwitchRoot>
-    </ClientOnly>
-
-    <span class="text-xl">🌙</span>
-  </div>
+      <span class="text-xl">🌙</span>
+    </div>
 </template>
