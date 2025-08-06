@@ -18,6 +18,7 @@ export async function fetchPokemons() {
 				base_experience: detail.base_experience,
 				color: species.color.name,
 				sprites: detail.sprites,
+				cries: detail.cries,
 				translations: species.names.reduce((acc: Record<string, string>, item: {
 					name: string;
 					language: { name: string }

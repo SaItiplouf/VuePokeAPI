@@ -25,28 +25,25 @@ const isDark = computed({
 </script>
 
 <template>
-  <div class="inline-flex items-center space-x-2">
-    <span class="text-xl">🌞</span>
-
-    <SwitchRoot
-        v-model="isDark"
-        role="switch"
-        :aria-checked="isDark"
-        class="
+    <div class="inline-flex items-center space-x-2">
+      <span class="text-xl">🌞</span>
+      <SwitchRoot
+          v-model="isDark"
+          role="switch"
+          :aria-checked="isDark"
+          class="
         relative inline-flex w-12 h-6 items-center rounded-full
         bg-gray-300 transition-colors duration-200 peer
         data-[state=checked]:bg-success
       "
-    >
-      <SwitchThumb
-          :class="[
+      >
+        <SwitchThumb
+            :class="[
     'inline-block w-5 h-5 bg-white rounded-full shadow transform transition-transform duration-200',
     isDark ? 'translate-x-7' : 'translate-x-0'
   ]"
-      />
-
-    </SwitchRoot>
-
-    <span class="text-xl">🌙</span>
-  </div>
+        />
+      </SwitchRoot>
+      <span class="text-xl">🌙</span>
+    </div>
 </template>

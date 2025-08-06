@@ -29,6 +29,11 @@ export const usePokemonStore = defineStore('pokemon', {
 				})
 			}
 			return list
+		},
+		getPokemonByName: (state) => {
+			return (name: string) => {
+				return state.pokemons.find(p => p.name === name) ?? null
+			}
 		}
 	},
 	actions: {

@@ -1,8 +1,8 @@
 <template>
   <div
-      class="w-full backdrop-blur-sm bg-base-100/70 border border-light dark:border-primary border-opacity-50 rounded-lg overflow-hidden transition duration-200 ease-out cursor-wait animate-pulse"
+      class="w-full backdrop-blur-sm border border-light dark:border-primary border-opacity-50 rounded-lg overflow-hidden transition duration-300 ease-out animate-pulse"
   >
-    <div class="relative bg-base-200 p-4 flex justify-center items-center h-48">
+    <div class="relative p-4 flex justify-center items-center h-48">
       <div
           class="absolute w-32 h-32 rounded-full bg-gradient-to-br from-light dark:from-main to-transparent blur-2xl z-0 opacity-30 dark:opacity-20"
       ></div>

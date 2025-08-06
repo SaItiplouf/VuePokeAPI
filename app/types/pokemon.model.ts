@@ -12,6 +12,7 @@ export interface IPokemonExtended extends IPokemon {
 	height: number;
 	weight: number;
 	color: string;
+	cries: Record<string, string>;
 	sprites: Record<string, string>;
 	translations: Record<string, string>;
 }
