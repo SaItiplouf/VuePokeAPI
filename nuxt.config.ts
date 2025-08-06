@@ -5,9 +5,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
     },
-    CACHE_DIR: 'tmp/.cache',
-    POKEMONS_FILE: 'pokemons.json',
-    TYPES_FILE: 'pokemonTypes.json',
     CACHE_TTL: 1000 * 60 * 60, // 1h
     POKEMONS_URL: 'https://pokeapi.co/api/v2/pokemon?limit=151&offset=0',
     POKEMON_SPECIES: 'https://pokeapi.co/api/v2/pokemon-species',
